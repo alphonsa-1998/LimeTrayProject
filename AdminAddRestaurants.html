@@ -32,7 +32,8 @@ body{background:linear-gradient(to bottom, rgba(0, 0, 0,0.9), rgba(0, 0, 0,0.6),
 <h4><b>Food Delivery App</b></h4><br/><br/><br/>-->
 <h2 style="font-family:seriff; font-size:25"><b>RESTAURANT DETAILS</b></h2><br/>
 Reataurant Id: <input type="text" id="rid"/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-Reataurant Name: <input type="text" id="rname"/>
+Reataurant Name: <input type="text" id="rname"/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+Location Id: <input type="text" id="locid"/>
 <br/><br/>
 
 <b>Menu: <select>
@@ -45,8 +46,27 @@ Reataurant Name: <input type="text" id="rname"/>
 
 
 <br/><br/>
-Location Id: <input type="text" id="locid"/>
 
+<b>To:<select id="to">
+						<option value="" >Select...</option>
+						<option value="bglr" class="tolocation">BANGLORE</option>
+						<option value="cmbtre" class="tolocation">COIMBATORE</option>
+						<option value="kochi" class="tolocation">KOCHI</option>
+						</select>
+						  </b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<b>From:<select id="from">
+						<option value="" >Select...</option>
+						<option value="bglr" class="fromlocation">BANGLORE</option>
+						<option value="cmbtre" class="fromlocation">COIMBATORE</option>
+						<option value="kochi" class="fromlocation">KOCHI</option>
+						</select>
+						<!--<span id="err1"></span>-->
+						</b><br/>
+<span id="err"></span><br/>
 
 <div align="center" class="imgAlign">
 Item 1: <input type="text" id="item1"/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -103,7 +123,18 @@ var h=document.getElementById("price3").value;
 var to = document.getElementById("stops");
 
 
+function dropdownValidation1() {
+var to = document.getElementById("to");
+var from = document.getElementById("from");
 
+if (to.options[to.selectedIndex].value ==   from.options[from.selectedIndex].value) {
+
+document.getElementById("err").innerHTML="Make sure 'From location' and 'To location' are not same."
+} else {
+document.getElementById("err").innerHTML="";
+}
+
+}
 
 /*if (to.options[to.selectedIndex].value ==  null)
 return false;
